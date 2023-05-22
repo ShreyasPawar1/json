@@ -1,0 +1,54 @@
+{
+    "cmService": "tracelink-cm-server",
+    "consulKV": {
+        "consulKVMap": {
+            "accessKey": "",
+            "adminPort": 8081,
+            "config/tlqe/qefkt/tracelink-eucompliance/bucketS3Static": "qefkt-lscapp-static",
+            "port": 8080,
+            "secretAccessKey": "K2c78ztsB/0kxPAbu2F+Lsg8aQapuSZYes/2y8hu"
+        }
+    },
+    "cpu": "256",
+    "desiredCount": "3",
+    "environment": "qefkt",
+    "environmentMap": {
+        "ecsEnvironmentMap": {
+            "ARCHIVE_BUCKET_NAME": "qefkt-lscapp-archive",
+            "CM_SERVICE_NAME": "tracelink-cm-server",
+            "DB_MODULE_NAME": "tlqe-qefkt-tracelink-worldview-server-eucompliance",
+            "DYNAMIC_BUCKET_NAME": "qefkt-lscapp-dynamic",
+            "EPHEMERAL_BUCKET_NAME": "qefkt-lscapp-ephemeral",
+            "STATIC_BUCKET_NAME": "qefkt-lscapp-static"
+        }
+    },
+    "expirationChartCacheTTLInSeconds": "86400",
+    "image": "862314277006.dkr.ecr.us-east-1.amazonaws.com/tracelink/tracelink-eucompliance:2.19.1-2",
+    "jvmArgs": "-Xmx1536m -Xms512m",
+    "kongAdmin": true,
+    "kong_groups": [
+        "tlqe-users",
+        "tlqe-qefkt-users",
+        "tlqe-qefkt-tracelink-eucompliance-users"
+    ],
+    "memory": "2048",
+    "memoryReservation": "2048",
+    "namespace": "tlqe",
+    "portMapping": [
+        8080,
+        8081
+    ],
+    "serviceBaseName": "tracelink-eucompliance",
+    "serviceScopes": [
+        {
+            "e": [
+                "qefkt"
+            ],
+            "n": "tlqe"
+        }
+    ],
+    "stackType": "INTERNAL",
+    "targetGroupARN": "arn:aws:elasticloadbalancing:eu-central-1:342468297380:targetgroup/qefkt-eucomplianceTG/eba6b73e6a807d07",
+    "templateLocation": "TRACELINK",
+    "version": "2.19.1-2"
+}
